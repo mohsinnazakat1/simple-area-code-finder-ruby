@@ -32,12 +32,18 @@ def get_area_code(somehash, key)
       return code
     end
   end
-  'no record found with this city'
+  'no record found'
 end
 
-puts get_area_code area_code, 'Swat'
+# puts get_area_code area_code, 'Swat'
  
 # Execution flow
-# loop do
-# # Write your program execution code here
-# end
+loop do
+  puts 'Do you want to lookup an area code based on the city (Y/N)'
+  respone = gets.chomp.downcase
+  break if respone != 'y'
+  get_city_names area_code
+  puts 'Which city do you want the area code for?'
+  city_name = gets.chomp
+  puts "The area code for #{city_name} is #{get_area_code area_code, city_name}"
+end
